@@ -1,0 +1,37 @@
+
+<div class="banner">
+  <h1>Mes Listes</h1>
+  <%= link_to "Nouvelle Liste", new_list_path, class:"btn btn-primary" %>
+  <%= link_to "Home", root_path, class: "btn btn-primary" %>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="carouselContainer">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <% @lists.each_with_index do |list, i| %>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <%= i == 0 ? "class=active" : "" %> aria-current="true" aria-label="Slide 1"></button>
+        <% end %>
+      </div>
+      <div class="carousel-inner">
+        <% @lists.each_with_index do |list, i| %>
+          <%= link_to list_path(list) do %>
+            <div class="carousel-item <%= i == 0 ? "active" : "" %>">
+              <img class="d-block w-100" src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg" alt="<%= list.name %>">
+              <div class="carousel-caption d-none d-md-block">
+                <h5><%= list.name %></h5>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.banner {
+  height: 50vh;
+  background-image: asset_url("banner.jpeg");
+  background-position: left;
+  background-color: #594756;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  height: 400px;
+  width: 600px;
+}
